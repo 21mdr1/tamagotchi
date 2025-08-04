@@ -1,17 +1,21 @@
 import './Main.scss';
 import background from '../../assets/images/background.PNG';
 // import background from '../../assets/images/full.PNG';
-// import 
+import Button from '../Button/Button';
+import Egg from '../Egg/Egg';
+
 
 export default function Main() {
     return (
         <main className="main">
             <img src={ background } alt="tamagotchi background" className="background" />
             {/* <img src={ icons } alt="tamagotchi icons" className="buttons" /> */}
-            <div title="tamagotchi baby, it jumps around" className="character character--baby" />
-            <div title="button A" className="buttons buttons--a" />
-            <div title="Button B" className="buttons buttons--b" />
-            <div title="Button C" className="buttons buttons--c" />
+            {/* <div title="tamagotchi baby, it jumps around" className="character character--baby" /> */}
+            <Egg />
+
+            <Button type='a' />
+            <Button type='b' />
+            <Button type='c' />
         </main>
     );
 }

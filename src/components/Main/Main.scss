@@ -1,3 +1,5 @@
+@use '../../styles/animations.scss' as *;
+
 .main {
 }
 
@@ -7,55 +9,11 @@
     inset: 0;
 }
 
-.buttons {
-    position: absolute;
-    app-region: no-drag;
-    background-repeat: no-repeat;
-    width: 27px;
-    height: 27px;
-
-    &--a {
-        inset: 328px 0 0 135px;
-        background-image: url('../../assets/images/buttons/buttonA_up.PNG');
-
-        &:active {
-            background-image: url('../../assets/images/buttons/buttonA_down.PNG');
-        }
-    }
-
-    &--b {
-        inset: 340px 0 0 183px;
-        background-image: url('../../assets/images/buttons/buttonB_up.PNG');
-
-        &:active {
-            background-image: url('../../assets/images/buttons/buttonB_down.PNG');
-        }
-    }
-
-    &--c {
-        inset: 329px 0 0 233px;
-        background-image: url('../../assets/images/buttons/buttonC_up.PNG');
-
-        &:active {
-            background-image: url('../../assets/images/buttons/buttonC_down.PNG');
-        }
-    }
-}
-
-@keyframes sprite-play {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: -5940px 0;
-    }
-}
-
 .character {
     position: absolute;
     top: 165px;
     left: 115px;
-    background: url('../../assets/images/baby_sprite.png') no-repeat;
+    background: url('../../assets/images/sprites/baby_sprite.png') no-repeat;
     width: 165px;
     height: 75px;
     animation: sprite-play 18s steps(36) infinite;

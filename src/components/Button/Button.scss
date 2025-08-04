@@ -1,0 +1,34 @@
+.button {
+    position: absolute;
+    app-region: no-drag;
+    background-repeat: no-repeat;
+    width: 27px;
+    height: 27px;
+
+    &--a {
+        inset: 328px 0 0 135px;
+        background-image: url('../../assets/images/buttons/buttonA_up.PNG');
+
+        &:active {
+            background-image: url('../../assets/images/buttons/buttonA_down.PNG');
+        }
+    }
+
+    &--b {
+        inset: 340px 0 0 183px;
+        background-image: url('../../assets/images/buttons/buttonB_up.PNG');
+
+        &:active {
+            background-image: url('../../assets/images/buttons/buttonB_down.PNG');
+        }
+    }
+
+    &--c {
+        inset: 329px 0 0 233px;
+        background-image: url('../../assets/images/buttons/buttonC_up.PNG');
+
+        &:active {
+            background-image: url('../../assets/images/buttons/buttonC_down.PNG');
+        }
+    }
+}
