@@ -1,4 +1,4 @@
-import './Main.css';
+import './Main.scss';
 import background from '../../assets/images/background.PNG';
 // import background from '../../assets/images/full.PNG';
 // import 

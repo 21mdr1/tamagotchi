@@ -11,10 +11,16 @@ rules.push({
 rules.push({
   test: /\.(png|jpe?g|gif|svg)$/i,
   type: 'asset/resource',
-  // generator: {
-  //   filename: 'images/[name].[hash][ext]',
-  // }
-})
+});
+
+rules.push({
+  test: /\.s[ac]ss$/i,
+  use: [
+    "style-loader",
+    "css-loader",
+    "sass-loader",
+  ],
+});
 
 export const rendererConfig: Configuration = {
   module: {
@@ -22,6 +28,6 @@ export const rendererConfig: Configuration = {
   },
   plugins,
   resolve: {
-    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css'],
+    extensions: ['.js', '.ts', '.jsx', '.tsx', '.css', '.scss'],
   },
 };
