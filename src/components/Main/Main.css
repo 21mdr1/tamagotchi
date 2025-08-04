@@ -14,16 +14,51 @@
 
 .buttons {
     position: absolute;
-    top: 0;
-    left: 0;
+    app-region: no-drag;
+}
+
+.buttons--a {
+    top: 328px;
+    left: 135px;
+    width: 26px;
+    height: 27px;
+    background-image: url('../../assets/images/buttons/buttonA_up.PNG');
+}
+
+.buttons--b {
+    top: 340px;
+    left: 183px;
+    width: 28px;
+    height: 27px;
+    background-image: url('../../assets/images/buttons/buttonB_up.PNG');
+}
+
+.buttons--c {
+    top: 329px;
+    left: 233px;
+    width: 27px;
+    height: 25px;
+    background-image: url('../../assets/images/buttons/buttonC_up.PNG');
+}
+
+.buttons--a:active {
+    background-image: url('../../assets/images/buttons/buttonA_down.PNG');
+}
+
+.buttons--b:active {
+    background-image: url('../../assets/images/buttons/buttonB_down.PNG');
+}
+
+.buttons--c:active {
+    background-image: url('../../assets/images/buttons/buttonC_down.PNG');
 }
 
 @keyframes sprite-play {
     from {
-        background-position: 0 0; /* Start at the first frame */
+        background-position: 0 0;
     }
     to {
-        background-position: -5940px 0; /* Shift to reveal the last frame */
+        background-position: -5940px 0;
     }
 }
 
