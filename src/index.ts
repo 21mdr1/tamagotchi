@@ -27,7 +27,25 @@ const createWindow = (): void => {
   // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
-  // Open the DevTools.
+  // workaround to weird bar when app is not in focus
+  const runWorkaround = () => {
+    if( mainWindow && !mainWindow.isDestroyed()) {
+      // Pause rendering
+      mainWindow.webContents.setFrameRate(0)
+      const [width, height] = mainWindow.getSize()
+      mainWindow.setSize(width, height + 1)
+      process.nextTick(() => {
+        if( mainWindow && !mainWindow.isDestroyed()) {
+          mainWindow.setSize(width, height)
+          mainWindow.webContents.setFrameRate(60)
+        }
+      })
+    }
+  }
+
+  mainWindow.webContents.on('before-input-event', runWorkaround)
+  mainWindow.webContents.on('focus', runWorkaround)
+  mainWindow.webContents.on('blur', runWorkaround)
 };
 
 // This method will be called when Electron has finished
