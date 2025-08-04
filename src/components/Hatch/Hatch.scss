@@ -1,0 +1,6 @@
+@use '../../styles/mixins' as *;
+
+.hatching_egg {
+    @include screen('../../assets/images/sprites/hatch_sprite.png');
+    @include animated(hatch, 3, 1);
+}

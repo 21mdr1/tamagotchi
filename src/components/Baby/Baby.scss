@@ -1,0 +1,6 @@
+@use '../../styles/mixins' as *;
+
+.character {
+    @include screen('../../assets/images/sprites/baby_sprite.png');
+    @include animated(baby-idle, 36);
+}

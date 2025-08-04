@@ -4,6 +4,7 @@ class Timer {
 
     constructor() {
         this.time = 0;
+        console.log("Making timer");
     }
 
     start(makeChange: (_: number) => void = (_: number) => {}): void {
@@ -11,10 +12,14 @@ class Timer {
             this.time++;
 
             const time = this.convert();
-            if (time.length === 2 && time[1] === 5) {
+            if (time.length === 2 && time[0] === 5) {
                 // idk we have to make a change here
                 makeChange(1);
             }
+            // if (time.length === 1 && time[0] === 20) {
+            //     // idk we have to make a change here
+            //     makeChange(1);
+            // }
 
         }, 1000);
     }

@@ -1,8 +1,7 @@
-@use '../../styles/animations' as *;
 @use '../../styles/mixins' as *;
 
 
 .egg {
     @include screen('../../assets/images/sprites/egg_sprite.png');
-    @include animated(2);
+    @include animated(egg-idle, 2);
 }

@@ -9,8 +9,3 @@
     position: absolute;
     inset: 0;
 }
-
-.character {
-    @include screen('../../assets/images/sprites/baby_sprite.png');
-    @include animated(36);
-}

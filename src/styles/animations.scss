@@ -1,4 +1,4 @@
-@keyframes sprite-play {
+@keyframes baby-idle {
     from {
         background-position: 0 0;
     }
@@ -7,11 +7,20 @@
     }
 }
 
-@keyframes egg-animation {
+@keyframes egg-idle {
     from {
         background-position: 0 0;
     }
     to {
         background-position: -330px 0;
+    }
+}
+
+@keyframes hatch {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -495px 0;
     }
 }

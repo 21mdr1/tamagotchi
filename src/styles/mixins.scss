@@ -1,3 +1,5 @@
+@use 'animations' as *;
+
 @mixin screen($image) {
     background: url($image) no-repeat;
     position: absolute;
@@ -6,16 +8,6 @@
     inset: 165px 0 0 115px;
 }
 
-@mixin animated($steps, $repeat: infinite) {
-    @keyframes animation {
-        from {
-            background-position: 0 0;
-        }
-        to {
-            background-position: calc($steps * -165px) 0;
-        }
-    }
-
-    & { animation: animation calc($steps * 1s / 2) steps($steps) $repeat; }
-
+@mixin animated($animation, $steps, $repeat: infinite) {
+    animation: $animation calc($steps * 1s / 2) steps($steps) $repeat;
 }
