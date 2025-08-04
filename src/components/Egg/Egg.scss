@@ -1,12 +1,8 @@
-@use '../../styles/animations.scss' as *;
+@use '../../styles/animations' as *;
+@use '../../styles/mixins' as *;
+
 
 .egg {
-    background: url('../../assets/images/sprites/egg_sprite.png') no-repeat;
-    position: absolute;
-    width: 165px;
-    height: 75px;
-    top: 165px;
-    left: 115px;
-    // animation: sprite-play calc(var(--steps)/2s) steps(var(--steps)) infinite;
-    animation: egg-animation 1s steps(2) infinite;
+    @include screen('../../assets/images/sprites/egg_sprite.png');
+    @include animated(2);
 }

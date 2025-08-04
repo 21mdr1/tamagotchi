@@ -5,7 +5,6 @@ export default function Egg() {
         <div 
             title="an egg, it is waiting to hatch" 
             className="egg"
-            // style={{'--steps': '2'}}
         />
     );
 }
