@@ -1,54 +1,47 @@
 class Timer {
     time: number;
     timeInterval: NodeJS.Timeout;
+    seconds: number;
+    minutes: number;
+    hours: number;
+    days: number;
 
     constructor() {
         this.time = 0;
-        console.log("Making timer");
+        this.seconds = this.minutes = this.hours = this.days = 0;
     }
 
     start(makeChange: (_: number) => void = (_: number) => {}): void {
         this.timeInterval = setInterval(() => {
-            this.time++;
+            this.time++; this.seconds++;
+            this.convert();
 
-            const time = this.convert();
-            if (time.length === 2 && time[0] === 5) {
-                // idk we have to make a change here
-                makeChange(1);
-            }
-            // if (time.length === 1 && time[0] === 20) {
-            //     // idk we have to make a change here
+            // if ( this.hours === 0 && this.days === 0
+            //     && this.minutes === 5) {
             //     makeChange(1);
             // }
+            
+            if (this.hours + this.days + this.minutes === 0 &&
+                this.seconds === 20) {
+                makeChange(1);
+            }
 
         }, 1000);
     }
 
-    convert(): Array<number> {
-        let remainingTime = this.time
-        const convertion = []
-
-        if(remainingTime >= 60*60*24) {
-            const days = Math.floor(remainingTime / (60*60*24));
-            convertion.push(days);
-            remainingTime -= (days * (60*60*24))
+    convert(): void {
+        if(this.seconds >= 60) {
+            this.minutes++;
+            this.seconds -= 60;
         }
-
-        if(remainingTime >= 60*60) {
-            const hrs = Math.floor(remainingTime / (60*60));
-            convertion.push(hrs);
-            remainingTime -= (hrs * (60*60))
+        if(this.minutes >= 60) {
+            this.hours++;
+            this.minutes -= 60;
         }
-
-        if(remainingTime >= 60) {
-            const mins = Math.floor(remainingTime / 60);
-            convertion.push(mins);
-            remainingTime -= (mins * 60);
+        if(this.hours >= 24) {
+            this.days++;
+            this.hours -= 24;
         }
-
-        convertion.push(remainingTime)
-
-        return convertion
     }
 
     // stop(): void {
