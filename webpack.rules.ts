@@ -1,4 +1,5 @@
 import type { ModuleOptions } from 'webpack';
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 export const rules: Required<ModuleOptions>['rules'] = [
   // Add support for native node modules
@@ -28,4 +29,16 @@ export const rules: Required<ModuleOptions>['rules'] = [
       },
     },
   },
+  {
+    test: /\.(png|jpe?g|gif|svg)$/i,
+    type: 'asset/resource',
+  },
+  {
+    test: /\.s[ac]ss$/i,
+    use: [
+      MiniCssExtractPlugin.loader,
+      { loader: "css-loader", options: { sourceMap: true }},
+      "sass-loader",
+    ],
+  }
 ];

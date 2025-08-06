@@ -11,15 +11,21 @@ export default function Character() {
     const [ stage, setStage ] = useState<stage>('egg');
 
     useEffect(() => {
-        console.log("Inside the useEffect")
         const timer = new Timer();
-        timer.start((change) => {
-            switch(change) {
-                case 1:
-                    setTimeout(() => {setStage('baby')}, 1500);
-                    setStage('hatch');
-            }
-        });
+        timer.start();
+
+        setTimeout(() => {
+            setTimeout(() => {setStage('baby')}, 1500);
+            setStage('hatch');
+        }, 5*60*1000)
+
+        // timer.start((change) => {
+        //     switch(change) {
+        //         case 1:
+        //             setTimeout(() => {setStage('baby')}, 1500);
+        //             setStage('hatch');
+        //     }
+        // });
     }, [Timer]);
 
     switch(stage) {
