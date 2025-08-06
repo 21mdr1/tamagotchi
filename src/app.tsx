@@ -5,11 +5,16 @@ import Timer from './utils/timer';
 
 const TimerContext = createContext(null);
 const timer = new Timer();
+timer.start(); // this will be moved in the future
 
 const root = createRoot(document.body);
 root.render(
-    <TimerContext value={timer}>
-        <Main />
-    </TimerContext>
-    
+    <>
+        {/* {!window.env.isProd() && 
+            (<p>THIS IS NOT PRODUCTION</p>)
+        } */}
+        <TimerContext value={timer}>
+            <Main />
+        </TimerContext>
+    </>
 );

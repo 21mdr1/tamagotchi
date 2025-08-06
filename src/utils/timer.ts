@@ -44,9 +44,9 @@ class Timer {
         }
     }
 
-    // stop(): void {
-    //     this.timeInterval()
-    // }
+    stop(): void {
+        clearInterval(this.timeInterval)
+    }
 }
 
 export default Timer;
