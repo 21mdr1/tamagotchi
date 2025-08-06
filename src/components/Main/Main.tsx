@@ -3,7 +3,6 @@ import background from '../../assets/images/background.PNG';
 // import background from '../../assets/images/full.PNG';
 import Button from '../Button/Button';
 import Character from '../Character/Character';
-// import Egg from '../Egg/Egg';
 
 export default function Main() {
     return (

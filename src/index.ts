@@ -28,6 +28,9 @@ const createWindow = (): void => {
   // and load the index.html of the app.
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY);
 
+
+  !app.isPackaged && mainWindow.setAlwaysOnTop(true);
+
   // workaround to weird bar when app is not in focus
   const runWorkaround = () => {
     if( mainWindow && !mainWindow.isDestroyed()) {

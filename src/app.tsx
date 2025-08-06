@@ -1,30 +1,32 @@
 import { createRoot } from 'react-dom/client';
-import { createContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Main from './components/Main/Main';
 import Timer from './utils/timer';
 import DevMode from './components/DevMode/DevMode';
+import { stages } from './types/types';
+import { TimerContext, DevModeContext} from './utils/context';
 
-const TimerContext = createContext(null);
 const timer = new Timer();
 timer.start(); // this will be moved in the future
 
 function App() {
     const [ isProd, setIsProd ] = useState(true);
+    const [ devModeStage, setDevModeStage ] = useState<stages>("none");
     
     useEffect(() => {
         async function getInfo() {
-            const response = await window.env.isProd()
-
-            setIsProd(response);
+            setIsProd(await window.env.isProd());
         }
 
         getInfo();
-    }, [])
+    }, []);
 
     return (
         <TimerContext value={timer}>
-            <Main />
-            {!isProd && <DevMode />}
+            <DevModeContext value={{devMode: !isProd, devModeStage, setDevModeStage}}>
+                <Main />
+                {!isProd && <DevMode />}
+            </DevModeContext>
         </TimerContext>
     );
 }
@@ -32,7 +34,5 @@ function App() {
 
 const root = createRoot(document.body);
 root.render(
-    <>
-        <App />
-    </>
+    <App />
 );

@@ -1,6 +1,8 @@
 .button {
     position: absolute;
-    app-region: no-drag;
+    -webkit-app-region: no-drag;
+    user-select: none;
+    -webkit-user-select: none;
     background-repeat: no-repeat;
     width: 27px;
     height: 27px;
