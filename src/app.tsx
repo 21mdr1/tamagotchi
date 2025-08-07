@@ -3,10 +3,13 @@ import { useState, useEffect } from 'react';
 import Main from './components/Main/Main';
 import Timer from './utils/timer';
 import DevMode from './components/DevMode/DevMode';
-import { TimerContext, DevModeContext} from './utils/context';
+import { DevModeContext, TamagotchiContext } from './utils/context';
+import Tamagotchi from './utils/tamagotchi';
 
 const timer = new Timer();
 timer.start(); // this will be moved in the future
+
+const tamagotchi = new Tamagotchi();
 
 function App() {
     const [ isProd, setIsProd ] = useState(true);
@@ -21,12 +24,12 @@ function App() {
     }, []);
 
     return (
-        <TimerContext value={timer}>
+        <TamagotchiContext value={{timer, tamagotchi}}>
             <DevModeContext value={{devMode: !isProd, devModeStage, setDevModeStage}}>
                 <Main />
                 {!isProd && <DevMode />}
             </DevModeContext>
-        </TimerContext>
+        </TamagotchiContext>
     );
 }
 

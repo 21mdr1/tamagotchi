@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext, useMemo } from 'react';
-import { DevModeContext, TimerContext } from '../../utils/context';
+import { DevModeContext, TamagotchiContext } from '../../utils/context';
 import Egg from '../Egg/Egg';
 import Hatch from '../Hatch/Hatch';
 import Baby from '../Baby/Baby';
 import './Character.scss';
 
 export default function Character() {
-    const timer = useContext(TimerContext);
+    const { timer, tamagotchi } = useContext(TamagotchiContext);
     const { devModeStage } = useContext(DevModeContext);
 
     const [ stage, setStage ] = useState<stages>(
