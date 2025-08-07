@@ -7,4 +7,4 @@ type IDevMode =  React.Context<{
 }>
 
 
-export type { stages, IDevMode};
+export type { stages, IDevMode };

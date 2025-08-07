@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext, useMemo } from 'react';
 import { DevModeContext, TimerContext } from '../../utils/context';
-import { stages } from '../../types/types';
 import Egg from '../Egg/Egg';
 import Hatch from '../Hatch/Hatch';
 import Baby from '../Baby/Baby';

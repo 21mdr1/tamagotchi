@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import Main from './components/Main/Main';
 import Timer from './utils/timer';
 import DevMode from './components/DevMode/DevMode';
-import { stages } from './types/types';
 import { TimerContext, DevModeContext} from './utils/context';
 
 const timer = new Timer();
