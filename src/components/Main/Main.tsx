@@ -20,10 +20,10 @@ export default function Main() {
 
             <Character />
 
-            <Button type='a' />
-            <Button type='b' action={() => {
+            <Button type='a' action={() => {
                 setSelectedIcon(prev => prev === 6? -1 : prev += 1)
             }} />
+            <Button type='b' />
             <Button type='c' />
         </main>
     );
