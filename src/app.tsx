@@ -1,19 +1,16 @@
 import { createRoot } from 'react-dom/client';
 import { useState, useEffect } from 'react';
 import Main from './components/Main/Main';
-import Timer from './utils/timer';
 import DevMode from './components/DevMode/DevMode';
 import { DevModeContext, TamagotchiContext } from './utils/context';
 import Tamagotchi from './utils/tamagotchi';
-
-const timer = new Timer();
-timer.start(); // this will be moved in the future
+import { Stage } from './types/consts';
 
 const tamagotchi = new Tamagotchi();
 
 function App() {
     const [ isProd, setIsProd ] = useState(true);
-    const [ devModeStage, setDevModeStage ] = useState<stages>("none");
+    const [ devModeStage, setDevModeStage ] = useState<Stage>(Stage.None);
     
     useEffect(() => {
         async function getInfo() {
@@ -24,7 +21,7 @@ function App() {
     }, []);
 
     return (
-        <TamagotchiContext value={{timer, tamagotchi}}>
+        <TamagotchiContext value={tamagotchi}>
             <DevModeContext value={{devMode: !isProd, devModeStage, setDevModeStage}}>
                 <Main />
                 {!isProd && <DevMode />}

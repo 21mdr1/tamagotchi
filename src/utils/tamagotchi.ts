@@ -1,7 +1,4 @@
-const SEC = 1000;
-const MIN = SEC * 60;
-const HR = MIN * 60;
-const DAY = HR * 24;
+import { Stage, MIN } from "../types/consts";
 
 export default class Tamagotchi {
     happiness: number;
@@ -44,17 +41,14 @@ export default class Tamagotchi {
     }
 
     baby() {
-        // weight is always 5
         // can't die
-        // -1 hunger every 3 mins
-        // -1 happy every 4 mins
         // 15mins - poop
         // 33mins - sick
         // 40min - fall asleep
         // 45mins - wake up and poop
         // 65mins - evolve
 
-        this.weight = 5;
+        this.weight = 5; // weight is always 5
 
         const hungerInverval = setInterval(() => {
             this.hunger > 0 && this.hunger--;

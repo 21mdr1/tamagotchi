@@ -5,21 +5,11 @@ declare module '*.jpg';
 declare module '*.JPEG';
 declare module '*.jpeg';
 
-declare type stages = "none" | "egg" | "hatch" | "baby" | "adult";
-
 declare type IDevMode =  React.Context<{
     devMode: boolean;
-    devModeStage: stages;
-    setDevModeStage: (_: stages) => void;
+    devModeStage: Stage;
+    setDevModeStage: SetStateAction<Stage>;
 }>
-
-declare enum Stage {
-    Egg = 0,
-    Baby,
-    Child,
-    Teen,
-    Adult,
-}
 
 declare enum Status {
     Poop = 1,
@@ -36,19 +26,6 @@ declare enum Screen {
     Scale,
     Discipline,
     Attention
-}
-
-declare class Timer {
-    time: number;
-    timeInterval: NodeJS.Timeout;
-    seconds: number;
-    minutes: number;
-    hours: number;
-    days: number;
-
-    start(): void;
-    convert(): void;
-    stop(): void;
 }
 
 declare class Tamagotchi {

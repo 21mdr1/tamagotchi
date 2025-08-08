@@ -1,28 +1,28 @@
 import { useState, useEffect, useContext, useMemo } from 'react';
 import { DevModeContext, TamagotchiContext } from '../../utils/context';
 import Egg from '../Egg/Egg';
-import Hatch from '../Hatch/Hatch';
+// import Hatch from '../Hatch/Hatch';
 import Baby from '../Baby/Baby';
 import './Character.scss';
+import { Stage } from '../../types/consts';
+
 
 export default function Character() {
-    const { timer, tamagotchi } = useContext(TamagotchiContext);
+    const tamagotchi = useContext(TamagotchiContext);
     const { devModeStage } = useContext(DevModeContext);
 
-    const [ stage, setStage ] = useState<stages>(
-        devModeStage !== "none" ? devModeStage : "egg"
+    const [ stage, setStage ] = useState<Stage>(
+        devModeStage !== Stage.None ? devModeStage : tamagotchi.stage
     );
 
     useEffect(() => {
-        setStage(devModeStage !== "none" ? devModeStage: "egg");
+        setStage(devModeStage !== Stage.None ? devModeStage: tamagotchi.stage);
     }, [devModeStage]);
 
     switch(stage) {
-        case 'egg':
+        case Stage.Egg:
             return <Egg />
-        case 'hatch':
-            return <Hatch />
-        case 'baby':
+        case Stage.Baby:
             return <Baby />
         default:
             return <></>
