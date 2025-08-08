@@ -15,7 +15,7 @@ export default function Main() {
             <img src={ background } alt="tamagotchi background" className="background" />
 
             {arr.map(num => (
-                <Icon icon={num} selected={selectedIcon === num} />
+                <Icon icon={num} key={num} selected={selectedIcon === num} />
             ))}
 
             <Character />

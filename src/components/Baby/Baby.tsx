@@ -1,16 +1,35 @@
 import './Baby.scss';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { TamagotchiContext } from '../../utils/context';
+import Hatch from '../Hatch/Hatch';
 
 
 export default function Baby() {
     const tamagotchi = useContext(TamagotchiContext);
-    tamagotchi.baby();
+    const [ isHatching, setIsHatching ] = useState(tamagotchi.isEvolving);
+
+    useEffect(() => {
+        const timeout = tamagotchi.baby();
+        return () => clearTimeout(timeout);
+    }, []);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setIsHatching(false);
+            tamagotchi.end_evolution()
+        }, 1000);
+
+        return () => clearTimeout(timeout);
+    }, []);
+    
 
     return (
-        <div 
-            title="tamagotchi baby, it jumps around" 
-            className="character" 
-        />
+        <>{isHatching ? 
+            <Hatch /> :
+            <div 
+                title="tamagotchi baby, it jumps around" 
+                className="character" 
+            />
+        }</>
     );
 }
