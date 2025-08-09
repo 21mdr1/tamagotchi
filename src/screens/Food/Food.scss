@@ -1,0 +1,12 @@
+@use '../../styles/mixins' as *;
+
+.food {
+    &__word {
+        @include screen();
+    }
+
+    &__arrow {
+        position: absolute;
+        inset: 165px 0 0 115px;
+    }
+}

@@ -1,7 +1,9 @@
 @use 'animations' as *;
 
-@mixin screen($image) {
-    background: url($image) no-repeat;
+@mixin screen($image: false) {
+    @if $image {
+        background: url($image) no-repeat;
+    }
     position: absolute;
     width: 165px;
     height: 75px;
