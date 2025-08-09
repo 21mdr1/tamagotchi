@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { Stage } from "../types/consts";
+import Tamagotchi from "./tamagotchi";
 
 const TamagotchiContext: React.Context<Tamagotchi> = createContext(null)
 
