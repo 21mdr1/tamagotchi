@@ -11,8 +11,6 @@ export default function Main() {
     const [ selectedIcon, setSelectedIcon ] = useState(-1);
     const [ screen, setScreen ] = useState(-1);
     const arr: (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7)[] = [0, 1, 2, 3, 4, 5, 6, 7];
-    console.log("screen", screen);
-    console.log("icon", selectedIcon);
 
     return (
         <main className="main">

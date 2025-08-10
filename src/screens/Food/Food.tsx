@@ -1,8 +1,12 @@
 import './Food.scss';
+import { useState } from 'react';
 import mealSnack from '../../assets/images/mealSnack.png';
 import arrow from '../../assets/images/arrow.png';
 
 export default function Food() {
+    const [ selected, setSelected ] = useState(true);
+
+
     return (<>
         <img 
             alt="Meal"
@@ -10,9 +14,9 @@ export default function Food() {
             className="food__word"
         />
         <img 
-            alt="Arrow choosing" 
+            alt={`Arrow choosing ${selected ? "meal" : "snack"}`} 
             src={arrow}
-            className="food__arrow food__arrow--"
+            className={`food__arrow food__arrow--${selected ? "meal" : "snack"}`}
         />
     </>);
 }

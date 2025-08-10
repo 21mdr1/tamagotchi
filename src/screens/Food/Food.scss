@@ -7,6 +7,15 @@
 
     &__arrow {
         position: absolute;
-        inset: 165px 0 0 115px;
+        left: 115px;
+
+        &--meal {
+            top: 165px;
+        }
+
+        &--snack {
+            top: 200px;
+        }
+        
     }
 }
