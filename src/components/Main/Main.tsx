@@ -7,11 +7,15 @@ import Button from '../Button/Button';
 import Character from '../Character/Character';
 import Food from '../../screens/Food/Food';
 import Scale from '../../screens/Scale/Scale';
+import { Screen, ScaleScreen } from '../../types/consts';
 
 export default function Main() {
     const [ selectedIcon, setSelectedIcon ] = useState(-1);
-    const [ screen, setScreen ] = useState(-1);
-    const arr: (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7)[] = [0, 1, 2, 3, 4, 5, 6, 7];
+    const [ screen, setScreen ] = useState<Screen>(Screen.Main);
+
+    const [ scaleScreen, setScaleScreen ] = useState<ScaleScreen | -1>(-1);
+
+    console.log(scaleScreen);
 
     return (
         <main className="main">
@@ -20,25 +24,34 @@ export default function Main() {
             {/* screen */}
 
 
-            {arr.map(num => (
+            {[...Array(8).keys()].map(num => (
                 <Icon icon={num} key={num} selected={selectedIcon === num} />
             ))}
 
             {
                 screen === -1 ? <Character /> :
                 screen === 0 ? <Food /> :
-                screen === 5 ? <Scale /> :
+                screen === 5 ? <Scale screen={scaleScreen} /> :
                 <Character />
             }
 
+            {/* Buttons */}
+
             <Button type='a' action={() => {
-                screen === -1 && setSelectedIcon(prev => prev === 6? -1 : prev += 1)
+                screen === Screen.Main && setSelectedIcon(prev => prev === Screen.Discipline? Screen.Main : prev + 1)
             }} />
             <Button type='b' action={() => {
-                screen === -1 && selectedIcon >= 0 && setScreen(selectedIcon);
+                switch(screen) {
+                    case Screen.Main:
+                        selectedIcon !== Screen.Main && setScreen(selectedIcon);
+                    case Screen.Food:
+                        //
+                    case Screen.Scale:
+                        setScaleScreen(prev => prev === ScaleScreen.Hungry? ScaleScreen.Weight : prev + 1)
+                }
             }} />
             <Button type='c' action={() => {
-                if (screen >= 0) {setSelectedIcon(-1); setScreen(-1)}
+                if (screen >= 0) {setSelectedIcon(Screen.Main); setScreen(Screen.Main)}
             }}/>
         </main>
     );

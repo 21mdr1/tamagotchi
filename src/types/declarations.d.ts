@@ -18,6 +18,7 @@ declare enum Status {
 }
 
 declare enum Screen {
+    Main = -1,
     Food = 0,
     Light,
     Play,

@@ -19,6 +19,7 @@ enum Status {
 }
 
 enum Screen {
+    Main = -1,
     Food = 0,
     Light,
     Play,
@@ -29,4 +30,11 @@ enum Screen {
     Attention
 }
 
-export { Stage, Status, Screen, SEC, MIN, HR, DAY };
+enum ScaleScreen {
+    Weight = 0,
+    Discipline,
+    Happy,
+    Hungry
+}
+
+export { Stage, Status, Screen, SEC, MIN, HR, DAY, ScaleScreen };

@@ -6,16 +6,11 @@ import weightIm from '../../assets/images/scale/weight.png';
 import fullHeart from '../../assets/images/scale/heart_full.png';
 import emptyHeart from '../../assets/images/scale/heart_empty.png';
 import tick from '../../assets/images/scale/tick.png';
+import { ScaleScreen } from '../../types/consts';
 
-enum ScaleScreen {
-    Weight = 0,
-    Discipline,
-    Happy,
-    Hungry
-}
-
-export default function Scale() {
-    const [ screen, setScreen ] = useState<ScaleScreen>(ScaleScreen.Hungry);
+export default function Scale({ screen }:{
+    screen: ScaleScreen;
+}) {
     const Tamagotchi = useContext(TamagotchiContext);
 
     switch(screen) {
@@ -74,8 +69,6 @@ function HappyHungry({ type, score }:{
     type: "Happy" | "Hungry",
     score: number
 }) {
-
-    console.log(score);
 
     return (
         <div className="happyhungry__screen">

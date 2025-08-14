@@ -15,27 +15,33 @@ import disciplineBright from '../../assets/images/icons/discipline_bright.PNG';
 import disciplineDim from '../../assets/images/icons/discipline_dim.PNG';
 import attentionBright from '../../assets/images/icons/attention_bright.PNG';
 import attentionDim from '../../assets/images/icons/attention_dim.PNG';
+import { Screen } from '../../types/consts';
 
 export default function Icon({ icon, selected = false }: {
-    icon: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7,
+    icon: Screen,
     selected?: boolean,
 }) {
 
-    const icons = {
-        0: [foodBright, foodDim],
-        1: [lightBright, lightDim],
-        2: [playBright, playDim],
-        3: [medicineBright, medicineDim],
-        4: [bathBright, bathDim],
-        5: [scaleBright, scaleDim],
-        6: [disciplineBright, disciplineDim],
-        7: [attentionBright, attentionDim],
+    const icons: {
+        [key: number]: string[]
+    } = {
+        0: [foodBright, foodDim, 'food'],
+        1: [lightBright, lightDim, 'light'],
+        2: [playBright, playDim, 'play'],
+        3: [medicineBright, medicineDim, 'medicine'],
+        4: [bathBright, bathDim, 'bath'],
+        5: [scaleBright, scaleDim, 'scale'],
+        6: [disciplineBright, disciplineDim, 'discipline'],
+        7: [attentionBright, attentionDim, 'attention'],
     }
 
 
 
     return (
-        // TODO: ADD ALT TEXT
-        <img alt="" src={icons[icon][selected? 0 : 1]} className={`icon icon--${icon}`} />
+        <img 
+            alt={`${icons[icon][2]} icon${selected? ', selected' : ''}`} 
+            src={icons[icon][selected? 0 : 1]} 
+            className={`icon icon--${icon}`} 
+        />
     );
 }
