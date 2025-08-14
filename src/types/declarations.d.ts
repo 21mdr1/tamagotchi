@@ -28,6 +28,13 @@ declare enum Screen {
     Attention
 }
 
+declare enum ScaleScreen {
+    Weight = 0,
+    Discipline,
+    Happy,
+    Hungry
+}
+
 declare type ValueOf<T> = T[keyof T];
 
 declare interface ITamagotchi {
@@ -40,26 +47,3 @@ declare interface ITamagotchi {
     _stage: Stage;
     _statuses: (Status)[];
 }
-
-// declare class Tamagotchi implements ITamagotchi {
-//     get happiness(): number;
-//     get hunger(): number;
-//     get weight(): number;
-//     get age(): number;
-//     get discipline(): number;
-//     get careScore(): number;
-//     get stage(): number;
-//     get statuses(): (Status)[];
-
-//     info: ITamagotchi;
-//     infoSetter: React.Dispatch<React.SetStateAction<ITamagotchi>>;
-//     isEvolving: boolean;
-
-//     constructor(info: ITamagotchi, infoSetter: (_: ITamagotchi) => void): void;
-//     eat_meal(): void;
-//     eat_snack(): void;
-//     evolve(): void;
-//     egg(): NodeJS.Timeout;
-//     baby(): NodeJS.Timeout;
-//     end_evolution(): void;
-// }

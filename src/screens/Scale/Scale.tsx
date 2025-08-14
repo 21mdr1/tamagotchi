@@ -15,7 +15,7 @@ enum ScaleScreen {
 }
 
 export default function Scale() {
-    const [ screen, setScreen ] = useState<ScaleScreen>(ScaleScreen.Weight);
+    const [ screen, setScreen ] = useState<ScaleScreen>(ScaleScreen.Hungry);
     const Tamagotchi = useContext(TamagotchiContext);
 
     switch(screen) {
@@ -24,9 +24,9 @@ export default function Scale() {
         case ScaleScreen.Discipline:
             return <Discipline />
         case ScaleScreen.Happy:
-            return <Happy />
+            return <HappyHungry type="Happy" score={Tamagotchi.happiness}/>
         case ScaleScreen.Hungry:
-            return <Hungry />
+            return <HappyHungry type="Hungry" score={Tamagotchi.hunger} />
     }
 }
 
@@ -70,29 +70,33 @@ function Discipline() {
     );
 }
 
-function Happy() {
-    return (
-        <div className="happy__screen">
-            <p className="happy__text">Happy</p>
-            <div className="happy__container">
-                <img src={fullHeart} alt="heart" className="discipline__image" />
-                <img src={fullHeart} alt="heart" className="discipline__image" />
-                <img src={fullHeart} alt="heart" className="discipline__image" />
-                <img src={fullHeart} alt="heart" className="discipline__image" />
-            </div>
-        </div>
-    );
-}
+function HappyHungry({ type, score }:{
+    type: "Happy" | "Hungry",
+    score: number
+}) {
 
-function Hungry() {
+    console.log(score);
+
     return (
-        <div className="happy__screen">
-            <p className="happy__text">Hungry</p>
-            <div className="happy__container">
-                <img src={fullHeart} alt="heart" className="discipline__image" />
-                <img src={fullHeart} alt="heart" className="discipline__image" />
-                <img src={fullHeart} alt="heart" className="discipline__image" />
-                <img src={fullHeart} alt="heart" className="discipline__image" />
+        <div className="happyhungry__screen">
+            <p className="happyhungry__text">{ type }</p>
+            <div className="happyhungry__container">
+                {[...Array(score).keys()].map(index => (
+                    <img 
+                        src={fullHeart} 
+                        key={index} 
+                        alt="full heart" 
+                        className="happyhungry__image" 
+                    />
+                ))}
+                {[...Array(4-score).keys()].map(index => (
+                    <img 
+                        src={emptyHeart} 
+                        key={index}  
+                        alt="empty heart" 
+                        className="happyhungry__image" 
+                    />
+                ))}
             </div>
         </div>
     );

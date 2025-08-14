@@ -11,8 +11,8 @@ function App() {
     const [ devModeStage, setDevModeStage ] = useState<Stage>(Stage.None);
     const [ info, infoSetter ] = useState<ITamagotchi>({
         _stage: Stage.Egg,
-        _happiness: 5,
-        _hunger: 5,
+        _happiness: 4,
+        _hunger: 4,
         _age: 0,
         _statuses: [],
         _careScore: 0,
