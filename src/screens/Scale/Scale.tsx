@@ -20,7 +20,7 @@ enum ScaleScreen {
 export default function Scale() {
     const [ screen, setScreen ] = useState<ScaleScreen>(ScaleScreen.Weight);
 
-    return <Discipline />
+    return <Hungry />
 
     switch(screen) {
         case ScaleScreen.Weight:
@@ -73,20 +73,28 @@ function Discipline() {
 
 function Happy() {
     return (
-        <img 
-            alt=''
-            src={happy}
-            className=""
-        />
+        <div className="happy__screen">
+            <p className="happy__text">Happy</p>
+            <div className="happy__container">
+                <img src={fullHeart} alt="heart" className="discipline__image" />
+                <img src={fullHeart} alt="heart" className="discipline__image" />
+                <img src={fullHeart} alt="heart" className="discipline__image" />
+                <img src={fullHeart} alt="heart" className="discipline__image" />
+            </div>
+        </div>
     );
 }
 
 function Hungry() {
     return (
-        <img 
-            alt=''
-            src={hungry}
-            className=""
-        />
+        <div className="happy__screen">
+            <p className="happy__text">Hungry</p>
+            <div className="happy__container">
+                <img src={fullHeart} alt="heart" className="discipline__image" />
+                <img src={fullHeart} alt="heart" className="discipline__image" />
+                <img src={fullHeart} alt="heart" className="discipline__image" />
+                <img src={fullHeart} alt="heart" className="discipline__image" />
+            </div>
+        </div>
     );
 }

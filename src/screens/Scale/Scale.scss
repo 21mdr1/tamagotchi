@@ -1,6 +1,17 @@
 @use '../../styles/mixins' as *;
 @use '../../styles/globals';
 
+@mixin scale_screen {
+    position: absolute;
+    top: screenTop();
+    left: screenLeft();
+    width: $screenWidth;
+    height: $screenHeight;
+    // gap: pixels(1);
+    display: flex;
+    flex-direction: column;
+}
+
 .weight {
     &__screen {
         position: absolute;
@@ -54,5 +65,17 @@
         display: flex;
         row-gap: pixels(1);
         padding: pixels(3) pixels(2) pixels(2);
+    }
+}
+
+.happy {
+    &__screen {
+        @include scale_screen;
+    }
+
+    &__container {
+        margin-top: calc(pixels(1) * -1);
+        display: flex;
+        column-gap: pixels(1);
     }
 }
