@@ -1,0 +1,49 @@
+@use '../../styles/mixins' as *;
+@use '../../styles/globals';
+
+.weight {
+    &__screen {
+        position: absolute;
+        top: screenTop();
+        left: screenLeft();
+        width: $screenWidth;
+        height: $screenHeight;
+        gap: pixels(1);
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__container {
+        height: pixels(7);
+        display: flex;
+        column-gap: pixels(3);
+        padding-left: pixels(2);
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+
+    &__numbers {
+        margin-bottom: calc(pixels(2) * -1);
+        letter-spacing: pixels(2);
+        width: calc(pixels(4)*2 + pixels(2));
+    }
+
+    &__text {
+        margin-bottom: calc(pixels(2) * -1);
+        margin-right: calc(pixels(1) * -1);
+    }
+}
+
+.discipline {
+    &__text {
+        position: absolute;
+        top: screenTop();
+        left: screenLeft(1);
+    }
+
+    &__container {
+        position: absolute;
+        top: screenTop(8);
+        left: screenLeft(2);
+    }
+}

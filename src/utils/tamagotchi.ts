@@ -29,7 +29,7 @@ export default class Tamagotchi {
     age_up() {
         this.set_info("_age", this.age + 1);
     }
-
+ 
     eat_meal() {
         this.set_info("_hunger", this.hunger + 1);
         this.set_info("_weight", this.weight + 1);

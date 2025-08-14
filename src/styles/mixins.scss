@@ -1,5 +1,15 @@
 @use 'animations' as *;
 
+@function pixels($pixels) {
+    @return $pixels * 5px
+}
+
+$screenPositionTop: 165px;
+$screenPositionLeft: 115px;
+$screenWidth: pixels(33);
+$screenHeight: pixels(15);
+
+
 @mixin screen($image: false) {
     @if $image {
         background: url($image) no-repeat;
@@ -12,4 +22,12 @@
 
 @mixin animated($animation, $steps, $repeat: infinite) {
     animation: $animation calc($steps * 1s / 2) steps($steps) $repeat;
+}
+
+@function screenTop($pixels: 0) {
+    @return $screenPositionTop + pixels($pixels);
+}
+
+@function screenLeft($pixels: 0) {
+    @return $screenPositionLeft + pixels($pixels);
 }

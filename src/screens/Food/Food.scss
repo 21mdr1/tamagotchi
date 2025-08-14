@@ -2,7 +2,7 @@
 
 .food {
     &__word {
-        @include screen();
+        @include screen;
     }
 
     &__arrow {

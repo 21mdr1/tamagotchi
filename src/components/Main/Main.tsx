@@ -6,6 +6,7 @@ import Icon from '../Icon/Icon';
 import Button from '../Button/Button';
 import Character from '../Character/Character';
 import Food from '../../screens/Food/Food';
+import Scale from '../../screens/Scale/Scale';
 
 export default function Main() {
     const [ selectedIcon, setSelectedIcon ] = useState(-1);
@@ -26,6 +27,7 @@ export default function Main() {
             {
                 screen === -1 ? <Character /> :
                 screen === 0 ? <Food /> :
+                screen === 5 ? <Scale /> :
                 <Character />
             }
 

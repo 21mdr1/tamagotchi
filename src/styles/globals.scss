@@ -1,4 +1,14 @@
+@use 'mixins' as *;
+
+@font-face {
+  font-family: 'Pixel Numbers';
+  src: url('../../assets/fonts/pixel-numbers.ttf') format('truetype');
+  font-weight: 400;
+}
+
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Pixel Numbers', 'Courier New', Courier, monospace;
+  font-size: pixels(9);
 }
