@@ -1,11 +1,8 @@
 import './Scale.scss';
 import { useContext, useState } from 'react';
 import { TamagotchiContext } from '../../utils/context';
-import age from '../../assets/images/scale/age.png';
-import weight from '../../assets/images/scale/weight.png';
-import disciplineScale from '../../assets/images/scale/discipline_scale.png';
-import happy from '../../assets/images/scale/happy.png';
-import hungry from '../../assets/images/scale/hungry.png';
+import ageIm from '../../assets/images/scale/age.png';
+import weightIm from '../../assets/images/scale/weight.png';
 import fullHeart from '../../assets/images/scale/heart_full.png';
 import emptyHeart from '../../assets/images/scale/heart_empty.png';
 import tick from '../../assets/images/scale/tick.png';
@@ -19,12 +16,11 @@ enum ScaleScreen {
 
 export default function Scale() {
     const [ screen, setScreen ] = useState<ScaleScreen>(ScaleScreen.Weight);
-
-    return <Hungry />
+    const Tamagotchi = useContext(TamagotchiContext);
 
     switch(screen) {
         case ScaleScreen.Weight:
-            return <Weight />
+            return <Weight weight={Tamagotchi.weight} age={Tamagotchi.age}/>
         case ScaleScreen.Discipline:
             return <Discipline />
         case ScaleScreen.Happy:
@@ -35,25 +31,28 @@ export default function Scale() {
 }
 
 
-function Weight() {
+function Weight({ weight, age }: {
+    weight: number;
+    age: number;
+}) {
     return (
         <div className='weight__screen'>
             <div className="weight__container">
                 <img
-                    src={age}
+                    src={ageIm}
                     alt="Age:"
                     className="weight__image" 
                 />
-                <p className="weight__numbers">20</p>
+                <p className="weight__numbers">{`${age < 10 ? '0' : ''}${age}`}</p>
                 <p className="weight__text">yr</p>
             </div>
             <div className="weight__container">
                 <img
-                    src={weight}
+                    src={weightIm}
                     alt="Weight:"
                     className="weight__image" 
                 />
-                <p className="weight__numbers">30</p>
+                <p className="weight__numbers">{`${weight < 10 ? '0' : ''}${weight}`}</p>
                 <p className="weight__text">oz</p>
             </div>
         </div>
