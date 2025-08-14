@@ -42,8 +42,17 @@
     }
 
     &__container {
+        background-image: url('../../assets/images/scale/discipline_scale.png');
+        background-position: cover;
+        box-sizing: border-box;
+        width: calc($screenWidth - pixels(2));
+        height: pixels(7);
         position: absolute;
         top: screenTop(8);
         left: screenLeft(2);
+
+        display: flex;
+        row-gap: pixels(1);
+        padding: pixels(3) pixels(2) pixels(2);
     }
 }

@@ -3,7 +3,6 @@ import { useContext, useState } from 'react';
 import { TamagotchiContext } from '../../utils/context';
 import age from '../../assets/images/scale/age.png';
 import weight from '../../assets/images/scale/weight.png';
-import fullWeight from '../../assets/images/scale/weight_full.png';
 import disciplineScale from '../../assets/images/scale/discipline_scale.png';
 import happy from '../../assets/images/scale/happy.png';
 import hungry from '../../assets/images/scale/hungry.png';
@@ -65,11 +64,9 @@ function Discipline() {
     return (
         <>
             <p className="discipline__text">Discipline</p>
-            <img 
-                alt=''
-                src={disciplineScale}
-                className="discipline__container"
-            />
+            <div className="discipline__container">
+                <img src={tick} alt="one" className="discipline__image" />
+            </div>
         </>
     );
 }
