@@ -1,18 +1,15 @@
 import './Food.scss';
-import { useState } from 'react';
-import mealSnack from '../../assets/images/mealSnack.png';
 import arrow from '../../assets/images/arrow.png';
 
-export default function Food() {
-    const [ selected, setSelected ] = useState(true);
-
+export default function Food({ selected }: {
+    selected: boolean;
+}) {
 
     return (<>
-        <img 
-            alt="Meal"
-            src={mealSnack}
-            className="food__word"
-        />
+        <div className="food__container">
+            <p className="food__text">MEal</p>
+            <p className="food__text">SNaCk</p>
+        </div>
         <img 
             alt={`Arrow choosing ${selected ? "meal" : "snack"}`} 
             src={arrow}

@@ -1,4 +1,4 @@
-import { MIN } from "../types/consts";
+import { MIN, Stage } from "../types/consts";
 
 export default class Tamagotchi {
     info: ITamagotchi;
@@ -31,13 +31,15 @@ export default class Tamagotchi {
     }
  
     eat_meal() {
-        this.set_info("_hunger", this.hunger + 1);
-        this.set_info("_weight", this.weight + 1);
+        if (this.hunger < 4) {
+            this.set_info("_hunger", this.hunger + 1);
+            this.stage > Stage.Baby && this.set_info("_weight", this.weight + 1);
+        }
     }
 
     eat_snack() {
-        this.set_info("_happiness", this.happiness + 1);
-        this.set_info("_weight", this.weight + 2);
+        this.happiness < 4 && this.set_info("_happiness", this.happiness + 1);
+        this.stage > Stage.Baby && this.set_info("_weight", this.weight + 2);
     }
 
     evolve() {

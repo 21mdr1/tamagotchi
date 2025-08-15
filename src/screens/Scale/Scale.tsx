@@ -59,6 +59,7 @@ function Discipline() {
         <>
             <p className="discipline__text">Discipline</p>
             <div className="discipline__container">
+                {/* TODO:  MAKE DISCIPLINE DYNAMIC */}
                 <img src={tick} alt="one" className="discipline__image" />
             </div>
         </>

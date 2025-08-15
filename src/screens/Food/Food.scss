@@ -1,20 +1,29 @@
 @use '../../styles/mixins' as *;
 
 .food {
-    &__word {
-        @include screen;
+    &__container {
+        position: absolute;
+        top: screenTop();
+        left: screenLeft(8);
+        display: flex;
+        flex-direction: column;
+        row-gap: pixels(1);
+    }
+
+    &__text {
+        margin-bottom: calc(pixels(2) * -1);
     }
 
     &__arrow {
         position: absolute;
-        left: 115px;
+        left: screenLeft();
 
         &--meal {
-            top: 165px;
+            top: screenTop();
         }
 
         &--snack {
-            top: 200px;
+            top: screenTop(8);
         }
         
     }
