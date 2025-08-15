@@ -1,9 +1,9 @@
+@use '../../styles/globals';
+
 .dropdown {
     position: absolute;
     left: 160px;
     top: 50px;
     -webkit-app-region: no-drag;
     z-index: 99;
-    font-size: 15px;
-    font-family: 'Courier New', Courier, monospace;
 }
