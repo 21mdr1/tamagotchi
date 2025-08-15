@@ -15,10 +15,10 @@ import disciplineBright from '../../assets/images/icons/discipline_bright.PNG';
 import disciplineDim from '../../assets/images/icons/discipline_dim.PNG';
 import attentionBright from '../../assets/images/icons/attention_bright.PNG';
 import attentionDim from '../../assets/images/icons/attention_dim.PNG';
-import { Screen } from '../../types/consts';
+import { EScreen } from '../../types/consts';
 
 export default function Icon({ icon, selected = false }: {
-    icon: Screen,
+    icon: EScreen,
     selected?: boolean,
 }) {
 
