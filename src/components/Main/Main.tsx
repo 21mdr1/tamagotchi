@@ -17,8 +17,6 @@ export default function Main() {
     const [ scaleScreen, setScaleScreen ] = useState<ScaleScreen>(ScaleScreen.Weight);
     const [ foodSelected, setFoodSelected ] = useState<boolean>(true);
 
-    console.log(scaleScreen);
-
     return (
         <main className="main">
             <img src={ background } alt="tamagotchi background" className="background" />
@@ -64,7 +62,7 @@ export default function Main() {
                 }
             }} />
             <Button type='c' action={() => {
-                if (screen >= 0) {setSelectedIcon(Screen.Main); setScreen(Screen.Main)}
+                if (screen >= 0) {setSelectedIcon(Screen.Main); setScreen(Screen.Main); setFoodSelected(true); setScaleScreen(ScaleScreen.Weight)}
             }}/>
         </main>
     );

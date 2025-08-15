@@ -54,8 +54,7 @@ export default class Tamagotchi {
     egg() {
         return setTimeout(() => {
             this.evolve();
-        // }, 5 * MIN);
-        }, 10000);
+        }, 5 * MIN);
     }
 
     baby() {
@@ -69,11 +68,19 @@ export default class Tamagotchi {
         this.set_info("_weight", 5); // weight is always 5
 
         const hungerInverval = setInterval(() => {
-            this.hunger > 0 && this.set_info("_hunger", this.hunger - 1);
+            this.infoSetter(prev => 
+                prev["_hunger"] > 0 ?
+                    {...prev, ["_hunger"]: (prev['_hunger'] - 1)} :
+                    prev
+            )
         }, 3 * MIN);
 
         const happinessInterval = setInterval(() => {
-            this.happiness > 0 && this.set_info("_happiness", this.happiness - 1);
+            this.infoSetter(prev => 
+                prev["_happiness"] > 0 ?
+                    {...prev, ["_happiness"]: (prev['_happiness'] - 1)} :
+                    prev
+            )
         }, 4 * MIN);
 
 
