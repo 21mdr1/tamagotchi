@@ -1,8 +1,9 @@
 import './Food.scss';
 import arrow from '../../assets/images/arrow.png';
+import { EFood } from '../../types/consts';
 
 export default function Food({ selected }: {
-    selected: boolean;
+    selected: EFood;
 }) {
 
     return (<>
@@ -11,9 +12,9 @@ export default function Food({ selected }: {
             <p className="food__text">SNaCk</p>
         </div>
         <img 
-            alt={`Arrow choosing ${selected ? "meal" : "snack"}`} 
+            alt={`Arrow choosing ${selected === EFood.Meal ? "meal" : "snack"}`} 
             src={arrow}
-            className={`food__arrow food__arrow--${selected ? "meal" : "snack"}`}
+            className={`food__arrow food__arrow--${selected === EFood.Meal ? "meal" : "snack"}`}
         />
     </>);
 }

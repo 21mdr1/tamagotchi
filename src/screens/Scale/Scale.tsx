@@ -6,21 +6,21 @@ import weightIm from '../../assets/images/scale/weight.png';
 import fullHeart from '../../assets/images/scale/heart_full.png';
 import emptyHeart from '../../assets/images/scale/heart_empty.png';
 import tick from '../../assets/images/scale/tick.png';
-import { ScaleScreen } from '../../types/consts';
+import { EScale } from '../../types/consts';
 
 export default function Scale({ screen }:{
-    screen: ScaleScreen;
+    screen: EScale;
 }) {
     const Tamagotchi = useContext(TamagotchiContext);
 
     switch(screen) {
-        case ScaleScreen.Weight:
+        case EScale.Weight:
             return <Weight weight={Tamagotchi.weight} age={Tamagotchi.age}/>
-        case ScaleScreen.Discipline:
+        case EScale.Discipline:
             return <Discipline />
-        case ScaleScreen.Happy:
+        case EScale.Happy:
             return <HappyHungry type="Happy" score={Tamagotchi.happiness}/>
-        case ScaleScreen.Hungry:
+        case EScale.Hungry:
             return <HappyHungry type="Hungry" score={Tamagotchi.hunger} />
     }
 }

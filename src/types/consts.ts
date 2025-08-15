@@ -18,7 +18,7 @@ enum Status {
     Sleep,
 }
 
-enum Screen {
+enum EScreen {
     Main = -1,
     Food = 0,
     Light,
@@ -30,11 +30,16 @@ enum Screen {
     Attention
 }
 
-enum ScaleScreen {
+enum EScale {
     Weight = 0,
     Discipline,
     Happy,
     Hungry
 }
 
-export { Stage, Status, Screen, SEC, MIN, HR, DAY, ScaleScreen };
+enum EFood {
+    Meal = 0,
+    Snack,
+}
+
+export { Stage, Status, EScreen, SEC, MIN, HR, DAY, EScale, EFood };
